@@ -194,11 +194,28 @@ a {
 .top-nav-center {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 3rem;
+  justify-content: space-between;
   width: 100%;
-  max-width: 1240px;
-  padding: 0 1.5rem;
+  max-width: 100%;
+  padding: 0 2.5rem;
+}
+
+.top-nav-brand {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity var(--transition-fast);
+}
+
+.top-nav-brand:hover {
+  opacity: 0.85;
 }
 
 .top-nav-link {
@@ -233,6 +250,7 @@ a {
 }
 
 .top-nav-cart {
+  margin-left: auto;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1683,16 +1701,18 @@ a {
   }
 
   .top-nav-center {
-    gap: 1.4rem;
-    padding: 0 0.8rem;
+    justify-content: space-between;
+    padding: 0 1rem;
   }
 
-  .top-nav-link {
-    font-size: 0.82rem;
+  .top-nav-brand {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
   }
 
   .top-nav-cart {
-    padding: 4px 12px;
+    margin-left: auto;
+    padding: 5px 12px;
     font-size: 0.82rem;
     gap: 6px;
   }
