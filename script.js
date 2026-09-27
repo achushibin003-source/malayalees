@@ -5,8 +5,10 @@
 
 // --- PRODUCT DATA (Artisanal D2C Food Brand Range) ---
 const PRODUCTS = [
+  // SECTION 1: COCONUT OILS
   {
     id: 'prod-oil-1l',
+    type: 'oil',
     category: 'COLD PRESSED OILS',
     title: 'Pure Wood Pressed Coconut Oil',
     badge: 'WOOD PRESSED',
@@ -17,7 +19,58 @@ const PRODUCTS = [
     image: 'assets/oil_bottle.jpg'
   },
   {
+    id: 'prod-oil-500ml',
+    type: 'oil',
+    category: 'COLD PRESSED OILS',
+    title: 'Standard Kitchen Glass Bottle',
+    badge: 'POPULAR',
+    volume: '500 ml',
+    size: '500 ml',
+    price: 195,
+    originalPrice: 220,
+    image: 'assets/oil_bottle.jpg'
+  },
+  {
+    id: 'prod-oil-200ml',
+    type: 'oil',
+    category: 'COLD PRESSED OILS',
+    title: 'Compact Glass Table Bottle',
+    badge: 'COMPACT',
+    volume: '200 ml',
+    size: '200 ml',
+    price: 85,
+    originalPrice: 99,
+    image: 'assets/oil_bottle.jpg'
+  },
+  {
+    id: 'prod-oil-2l',
+    type: 'oil',
+    category: 'COLD PRESSED OILS',
+    title: 'Chef Reserve Pouring Can',
+    badge: 'FAMILY PACK',
+    volume: '2 Litre',
+    size: '2 Litre',
+    price: 720,
+    originalPrice: 780,
+    image: 'assets/oil_bottle.jpg'
+  },
+  {
+    id: 'prod-oil-5l',
+    type: 'oil',
+    category: 'COLD PRESSED OILS',
+    title: 'Heritage Master Storage Can',
+    badge: 'BULK SAVER',
+    volume: '5 Litre',
+    size: '5 Litre',
+    price: 1650,
+    originalPrice: 1850,
+    image: 'assets/product.jpg'
+  },
+
+  // SECTION 2: PICKLES
+  {
     id: 'prod-pickle-mango',
+    type: 'pickle',
     category: 'TRADITIONAL PICKLES',
     title: 'Spicy Cut Mango Pickle',
     badge: 'HOMEMADE',
@@ -28,26 +81,52 @@ const PRODUCTS = [
     image: 'assets/pickle_jar.jpg'
   },
   {
-    id: 'prod-oil-500ml',
-    category: 'COLD PRESSED OILS',
-    title: 'Pure Wood Pressed Coconut Oil',
-    badge: 'WOOD PRESSED',
-    volume: '500 ml',
-    size: '500 ml',
-    price: 195,
-    originalPrice: 220,
-    image: 'assets/oil_bottle.jpg'
+    id: 'prod-pickle-kannimanga',
+    type: 'pickle',
+    category: 'TRADITIONAL PICKLES',
+    title: 'Tender Kannimanga Pickle',
+    badge: 'HEIRLOOM',
+    volume: '350g',
+    size: '350g',
+    price: 210,
+    originalPrice: 245,
+    image: 'assets/pickle_jar.jpg'
   },
   {
-    id: 'prod-oil-5l',
-    category: 'COLD PRESSED OILS',
-    title: 'Heritage Master Can',
-    badge: 'BULK SAVER',
-    volume: '5 Litre',
-    size: '5 Litre',
-    price: 1650,
-    originalPrice: 1850,
-    image: 'assets/product.jpg'
+    id: 'prod-pickle-lime',
+    type: 'pickle',
+    category: 'TRADITIONAL PICKLES',
+    title: 'Wild Kerala Lime Pickle',
+    badge: 'SUN DRIED',
+    volume: '400g',
+    size: '400g',
+    price: 175,
+    originalPrice: 199,
+    image: 'assets/pickle_jar.jpg'
+  },
+  {
+    id: 'prod-pickle-chilli',
+    type: 'pickle',
+    category: 'TRADITIONAL PICKLES',
+    title: "Fiery Bird's Eye Chilli Pickle",
+    badge: 'HOT & SPICY',
+    volume: '300g',
+    size: '300g',
+    price: 199,
+    originalPrice: 230,
+    image: 'assets/pickle_jar.jpg'
+  },
+  {
+    id: 'prod-pickle-ginger',
+    type: 'pickle',
+    category: 'TRADITIONAL PICKLES',
+    title: 'Kerala Inji Puli (Ginger Curry)',
+    badge: 'TRADITIONAL',
+    volume: '350g',
+    size: '350g',
+    price: 185,
+    originalPrice: 215,
+    image: 'assets/pickle_jar.jpg'
   }
 ];
 
@@ -137,10 +216,8 @@ const addNotif = document.getElementById('addNotif');
 const addNotifText = document.getElementById('addNotifText');
 const contactForm = document.getElementById('contactForm');
 
-// --- INITIALIZE PRODUCTS ---
-function renderProducts() {
-  if (!productsGrid) return;
-  productsGrid.innerHTML = PRODUCTS.map(p => `
+function createArtisanCardHTML(p) {
+  return `
     <div class="artisan-card reveal-up" data-id="${p.id}">
       <div class="card-img-wrap">
         <img src="${p.image}" alt="${p.title}" class="card-img" loading="lazy" />
@@ -164,7 +241,23 @@ function renderProducts() {
         <span>ADD TO CART</span>
       </button>
     </div>
-  `).join('');
+  `;
+}
+
+// --- INITIALIZE PRODUCTS INTO COCONUT OIL & PICKLES TRACKS ---
+function renderProducts() {
+  const oilTrack = document.getElementById('oilProductsTrack');
+  const pickleTrack = document.getElementById('pickleProductsTrack');
+
+  const oilProducts = PRODUCTS.filter(p => p.type === 'oil');
+  const pickleProducts = PRODUCTS.filter(p => p.type === 'pickle');
+
+  if (oilTrack) {
+    oilTrack.innerHTML = oilProducts.map(createArtisanCardHTML).join('');
+  }
+  if (pickleTrack) {
+    pickleTrack.innerHTML = pickleProducts.map(createArtisanCardHTML).join('');
+  }
 }
 
 window.toggleWishlist = function(productId, btn) {

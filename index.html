@@ -17,7 +17,8 @@
     <!-- TOP WHITE NAVIGATION BAR (Locked in Hero Section) -->
     <header class="top-white-bar" id="navbar">
       <nav class="top-nav-center">
-        <a href="#trending" class="top-nav-link">Shop</a>
+        <a href="#coconut-oil" class="top-nav-link">Coconut Oil</a>
+        <a href="#pickles" class="top-nav-link">Pickles</a>
         <a href="#story" class="top-nav-link">Our Story</a>
         <a href="#contact" class="top-nav-link">Contact</a>
         <button class="top-nav-cart" id="cartBtn" aria-label="Shopping cart">
@@ -67,7 +68,7 @@
         </div>
 
         <!-- Solid White Rounded Pill CTA Button -->
-        <a href="#trending" class="hero-shop-pill-btn">
+        <a href="#coconut-oil" class="hero-shop-pill-btn">
           <span>Shop Now</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -108,15 +109,28 @@
     </div>
   </div>
 
-  <!-- MIDDLE SECTION: TRENDING NOW (2-Column Product Grid) -->
-  <section class="trending-section" id="trending">
-    <div class="trending-container">
-      <div class="trending-header-row">
-        <h2 class="trending-title-bold">Trending now</h2>
-        <a href="#trending" class="trending-view-all" id="viewAllBtn">VIEW ALL</a>
+  <!-- SECTION 1: COCONUT OIL (Horizontal Scroll Snap) -->
+  <section class="products-category-section" id="coconut-oil">
+    <div class="category-container">
+      <div class="category-header-row">
+        <h2 class="category-title-bold">Coconut Oil</h2>
+        <a href="#coconut-oil" class="category-view-all">VIEW ALL</a>
       </div>
-      <div class="product-grid-2col" id="productsGrid">
-        <!-- Card 1 & Card 2 rendered dynamically by JS -->
+      <div class="horizontal-scroll-track" id="oilProductsTrack">
+        <!-- Coconut Oil cards rendered dynamically by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: PICKLES (Horizontal Scroll Snap) -->
+  <section class="products-category-section" id="pickles">
+    <div class="category-container">
+      <div class="category-header-row">
+        <h2 class="category-title-bold">Pickles</h2>
+        <a href="#pickles" class="category-view-all">VIEW ALL</a>
+      </div>
+      <div class="horizontal-scroll-track" id="pickleProductsTrack">
+        <!-- Pickle cards rendered dynamically by JS -->
       </div>
     </div>
   </section>

@@ -513,30 +513,34 @@ a {
 }
 
 /* ==========================================================================
-   TRENDING NOW (Middle Section with 2-Column Product Grid)
+   HORIZONTAL SCROLL PRODUCT SECTIONS (CSS Scroll Snap)
    ========================================================================== */
-.trending-section {
-  padding: 3.5rem 0 5rem;
+.products-category-section {
+  padding: 3rem 0 2rem;
   background-color: var(--bg-primary);
 }
 
-.trending-container {
+.products-category-section:last-of-type {
+  padding-bottom: 5rem;
+}
+
+.category-container {
   width: 100%;
-  max-width: 1040px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
 }
 
-.trending-header-row {
+.category-header-row {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.trending-title-bold {
+.category-title-bold {
   font-family: var(--font-sans);
   font-size: clamp(1.45rem, 3.8vw, 1.95rem);
   font-weight: 800;
@@ -544,7 +548,7 @@ a {
   color: #111111;
 }
 
-.trending-view-all {
+.category-view-all {
   font-family: var(--font-sans);
   font-size: 0.82rem;
   font-weight: 700;
@@ -555,28 +559,57 @@ a {
   transition: color var(--transition-fast);
 }
 
-.trending-view-all:hover {
+.category-view-all:hover {
   color: #9d7718;
   text-decoration: underline;
 }
 
-/* 2-Column Clean Card Grid */
-.product-grid-2col {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+/* Horizontal Scroll Track with CSS Scroll Snap */
+.horizontal-scroll-track {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding: 8px 4px 22px 4px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(197, 155, 39, 0.45) rgba(0, 0, 0, 0.04);
 }
 
-@media (min-width: 768px) {
-  .product-grid-2col {
-    gap: 22px;
+.horizontal-scroll-track::-webkit-scrollbar {
+  height: 5px;
+}
+
+.horizontal-scroll-track::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 9999px;
+  margin: 0 8px;
+}
+
+.horizontal-scroll-track::-webkit-scrollbar-thumb {
+  background: var(--gold-mustard);
+  border-radius: 9999px;
+}
+
+.horizontal-scroll-track .artisan-card {
+  flex: 0 0 270px;
+  width: 270px;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+@media (max-width: 640px) {
+  .horizontal-scroll-track {
+    gap: 12px;
+    padding-bottom: 16px;
   }
-}
-
-@media (min-width: 1024px) {
-  .product-grid-2col {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+  .horizontal-scroll-track .artisan-card {
+    flex: 0 0 220px;
+    width: 220px;
   }
 }
 
