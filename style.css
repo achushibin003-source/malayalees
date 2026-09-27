@@ -173,10 +173,10 @@ a {
 
 /* ==========================================================================
 /* ==========================================================================
-   TOP WHITE NAVIGATION BAR
+   TOP WHITE NAVIGATION BAR (Locked in Hero Section)
    ========================================================================== */
 .top-white-bar {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -184,16 +184,10 @@ a {
   background-color: #ffffff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
-  z-index: 1000;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition-smooth);
-}
-
-.top-white-bar.scrolled {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  height: 60px;
 }
 
 .top-nav-center {
