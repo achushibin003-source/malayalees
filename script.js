@@ -67,66 +67,66 @@ const PRODUCTS = [
     image: 'assets/product.jpg'
   },
 
-  // SECTION 2: PICKLES
+  // SECTION 2: PICKLES & CONDIMENTS
   {
     id: 'prod-pickle-mango',
     type: 'pickle',
     category: 'TRADITIONAL PICKLES',
-    title: 'Spicy Cut Mango Pickle',
+    title: 'Mango Pickle',
     badge: 'HOMEMADE',
     volume: '400g',
     size: '400g',
     price: 189,
     originalPrice: 229,
-    image: 'assets/pickle_jar.jpg'
+    image: 'assets/pickles/mango_pickle.jpeg'
   },
   {
-    id: 'prod-pickle-kannimanga',
+    id: 'prod-pickle-lemon',
     type: 'pickle',
     category: 'TRADITIONAL PICKLES',
-    title: 'Tender Kannimanga Pickle',
-    badge: 'HEIRLOOM',
-    volume: '350g',
-    size: '350g',
-    price: 210,
-    originalPrice: 245,
-    image: 'assets/pickle_jar.jpg'
-  },
-  {
-    id: 'prod-pickle-lime',
-    type: 'pickle',
-    category: 'TRADITIONAL PICKLES',
-    title: 'Wild Kerala Lime Pickle',
+    title: 'Lemon Pickle',
     badge: 'SUN DRIED',
     volume: '400g',
     size: '400g',
     price: 175,
     originalPrice: 199,
-    image: 'assets/pickle_jar.jpg'
+    image: 'assets/pickles/lemon_pickle.jpeg'
   },
   {
-    id: 'prod-pickle-chilli',
+    id: 'prod-pickle-beef',
     type: 'pickle',
-    category: 'TRADITIONAL PICKLES',
-    title: "Fiery Bird's Eye Chilli Pickle",
-    badge: 'HOT & SPICY',
-    volume: '300g',
-    size: '300g',
-    price: 199,
+    category: 'HOMEMADE SPECIAL',
+    title: 'Beef Pickle',
+    badge: 'SLOW ROASTED',
+    volume: '400g',
+    size: '400g',
+    price: 280,
+    originalPrice: 320,
+    image: 'assets/pickles/beef_pickle.jpeg'
+  },
+  {
+    id: 'prod-pickle-idi-chammanthi',
+    type: 'pickle',
+    category: 'TRADITIONAL CONDIMENTS',
+    title: 'Idi Chammanthi',
+    badge: 'AUTHENTIC RECIPE',
+    volume: '250g',
+    size: '250g',
+    price: 195,
     originalPrice: 230,
-    image: 'assets/pickle_jar.jpg'
+    image: 'assets/pickles/idi_chammanthi.jpeg'
   },
   {
-    id: 'prod-pickle-ginger',
+    id: 'prod-pickle-ginger-curry',
     type: 'pickle',
     category: 'TRADITIONAL PICKLES',
-    title: 'Kerala Inji Puli (Ginger Curry)',
-    badge: 'TRADITIONAL',
+    title: 'Ginger Curry (Inji Puli)',
+    badge: 'HERITAGE RECIPE',
     volume: '350g',
     size: '350g',
     price: 185,
     originalPrice: 215,
-    image: 'assets/pickle_jar.jpg'
+    image: 'assets/pickles/ginger_curry.jpeg'
   }
 ];
 
