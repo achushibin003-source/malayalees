@@ -7,126 +7,126 @@
 const PRODUCTS = [
   // SECTION 1: COCONUT OILS
   {
-    id: 'prod-oil-1l',
+    id: 'prod-oil-200g',
     type: 'oil',
-    category: 'COLD PRESSED OILS',
-    title: 'Pure Wood Pressed Coconut Oil',
-    badge: 'WOOD PRESSED',
-    volume: '1 Litre',
-    size: '1 Litre',
-    price: 349,
-    originalPrice: 399,
-    image: 'assets/oil_bottle.jpg'
-  },
-  {
-    id: 'prod-oil-500ml',
-    type: 'oil',
-    category: 'COLD PRESSED OILS',
-    title: 'Standard Kitchen Glass Bottle',
-    badge: 'POPULAR',
-    volume: '500 ml',
-    size: '500 ml',
-    price: 195,
-    originalPrice: 220,
-    image: 'assets/oil_bottle.jpg'
-  },
-  {
-    id: 'prod-oil-200ml',
-    type: 'oil',
-    category: 'COLD PRESSED OILS',
-    title: 'Compact Glass Table Bottle',
-    badge: 'COMPACT',
-    volume: '200 ml',
-    size: '200 ml',
+    category: '',
+    title: 'Malayalis Coconut Oil 200g',
+    badge: '',
+    volume: '200g',
+    size: '200g',
     price: 85,
     originalPrice: 99,
     image: 'assets/oil_bottle.jpg'
   },
   {
-    id: 'prod-oil-2l',
+    id: 'prod-oil-500g',
     type: 'oil',
-    category: 'COLD PRESSED OILS',
-    title: 'Chef Reserve Pouring Can',
-    badge: 'FAMILY PACK',
-    volume: '2 Litre',
-    size: '2 Litre',
+    category: '',
+    title: 'Malayalis Coconut Oil 500g',
+    badge: '',
+    volume: '500g',
+    size: '500g',
+    price: 195,
+    originalPrice: 220,
+    image: 'assets/oil_bottle.jpg'
+  },
+  {
+    id: 'prod-oil-1000g',
+    type: 'oil',
+    category: '',
+    title: 'Malayalis Coconut Oil 1000g',
+    badge: '',
+    volume: '1000g',
+    size: '1000g',
+    price: 349,
+    originalPrice: 399,
+    image: 'assets/oil_bottle.jpg'
+  },
+  {
+    id: 'prod-oil-2000g',
+    type: 'oil',
+    category: '',
+    title: 'Malayalis Coconut Oil 2000g',
+    badge: '',
+    volume: '2000g',
+    size: '2000g',
     price: 720,
     originalPrice: 780,
     image: 'assets/oil_bottle.jpg'
   },
   {
-    id: 'prod-oil-5l',
+    id: 'prod-oil-5000g',
     type: 'oil',
-    category: 'COLD PRESSED OILS',
-    title: 'Heritage Master Storage Can',
-    badge: 'BULK SAVER',
-    volume: '5 Litre',
-    size: '5 Litre',
+    category: '',
+    title: 'Malayalis Coconut Oil 5000g',
+    badge: '',
+    volume: '5000g',
+    size: '5000g',
     price: 1650,
     originalPrice: 1850,
     image: 'assets/product.jpg'
   },
 
-  // SECTION 2: PICKLES & CONDIMENTS
+  // SECTION 2: PICKLES (All 200g, Beef exactly 200, other unique prices < 200)
   {
     id: 'prod-pickle-mango',
     type: 'pickle',
-    category: 'TRADITIONAL PICKLES',
+    category: '',
     title: 'Mango Pickle',
-    badge: 'HOMEMADE',
-    volume: '400g',
-    size: '400g',
-    price: 189,
-    originalPrice: 229,
+    badge: '',
+    volume: '200g',
+    size: '200g',
+    price: 160,
+    originalPrice: 185,
     image: 'assets/pickles/mango_pickle.jpeg'
   },
   {
     id: 'prod-pickle-lemon',
     type: 'pickle',
-    category: 'TRADITIONAL PICKLES',
+    category: '',
     title: 'Lemon Pickle',
-    badge: 'SUN DRIED',
-    volume: '400g',
-    size: '400g',
-    price: 175,
-    originalPrice: 199,
+    badge: '',
+    volume: '200g',
+    size: '200g',
+    price: 150,
+    originalPrice: 175,
     image: 'assets/pickles/lemon_pickle.jpeg'
-  },
-  {
-    id: 'prod-pickle-beef',
-    type: 'pickle',
-    category: 'HOMEMADE SPECIAL',
-    title: 'Beef Pickle',
-    badge: 'SLOW ROASTED',
-    volume: '400g',
-    size: '400g',
-    price: 280,
-    originalPrice: 320,
-    image: 'assets/pickles/beef_pickle.jpeg'
-  },
-  {
-    id: 'prod-pickle-idi-chammanthi',
-    type: 'pickle',
-    category: 'TRADITIONAL CONDIMENTS',
-    title: 'Idi Chammanthi',
-    badge: 'AUTHENTIC RECIPE',
-    volume: '250g',
-    size: '250g',
-    price: 195,
-    originalPrice: 230,
-    image: 'assets/pickles/idi_chammanthi.jpeg'
   },
   {
     id: 'prod-pickle-ginger-curry',
     type: 'pickle',
-    category: 'TRADITIONAL PICKLES',
-    title: 'Ginger Curry (Inji Puli)',
-    badge: 'HERITAGE RECIPE',
-    volume: '350g',
-    size: '350g',
-    price: 185,
-    originalPrice: 215,
+    category: '',
+    title: 'Ginger Curry',
+    badge: '',
+    volume: '200g',
+    size: '200g',
+    price: 175,
+    originalPrice: 195,
     image: 'assets/pickles/ginger_curry.jpeg'
+  },
+  {
+    id: 'prod-pickle-idi-chammanthi',
+    type: 'pickle',
+    category: '',
+    title: 'Idi Chammanthi',
+    badge: '',
+    volume: '200g',
+    size: '200g',
+    price: 185,
+    originalPrice: 210,
+    image: 'assets/pickles/idi_chammanthi.jpeg'
+  },
+  {
+    id: 'prod-pickle-beef',
+    type: 'pickle',
+    category: '',
+    title: 'Beef Pickle',
+    badge: '',
+    volume: '200g',
+    size: '200g',
+    price: 200,
+    originalPrice: 230,
+    image: 'assets/pickles/beef_pickle.jpeg'
   }
 ];
 
@@ -226,10 +226,10 @@ function createArtisanCardHTML(p) {
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
           </svg>
         </button>
-        <span class="card-badge">${p.badge}</span>
+        ${p.badge ? `<span class="card-badge">${p.badge}</span>` : ''}
       </div>
       <div class="card-body">
-        <span class="card-category">${p.category}</span>
+        ${p.category ? `<span class="card-category">${p.category}</span>` : ''}
         <h3 class="card-title">${p.title}</h3>
         <div class="card-volume">${p.volume}</div>
         <div class="card-price-row">
