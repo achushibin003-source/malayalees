@@ -3,60 +3,50 @@
    Interactive Scripts & E-Commerce Logic
    ========================================================================== */
 
-// --- PRODUCT DATA (All 6 Standard Sizes) ---
+// --- PRODUCT DATA (Artisanal D2C Food Brand Range) ---
 const PRODUCTS = [
   {
-    id: 'prod-100ml',
-    brand: 'MALAYALEES',
-    size: '100 ml',
-    title: 'MALAYALEES',
-    price: 45,
-    badge: 'Starter',
-    image: 'assets/product.jpg'
-  },
-  {
-    id: 'prod-200ml',
-    brand: 'MALAYALEES',
-    size: '200 ml',
-    title: 'MALAYALEES',
-    price: 85,
-    badge: 'Compact',
-    image: 'assets/product.jpg'
-  },
-  {
-    id: 'prod-500ml',
-    brand: 'MALAYALEES',
-    size: '500 ml',
-    title: 'MALAYALEES',
-    price: 195,
-    badge: 'Popular',
-    image: 'assets/product.jpg'
-  },
-  {
-    id: 'prod-1l',
-    brand: 'MALAYALEES',
+    id: 'prod-oil-1l',
+    category: 'COLD PRESSED OILS',
+    title: 'Pure Wood Pressed Coconut Oil',
+    badge: 'WOOD PRESSED',
+    volume: '1 Litre',
     size: '1 Litre',
-    title: 'MALAYALEES',
-    price: 370,
-    badge: 'Best Value',
-    image: 'assets/product.jpg'
+    price: 349,
+    originalPrice: 399,
+    image: 'assets/oil_bottle.jpg'
   },
   {
-    id: 'prod-2l',
-    brand: 'MALAYALEES',
-    size: '2 Litre',
-    title: 'MALAYALEES',
-    price: 720,
-    badge: 'Family Pack',
-    image: 'assets/product.jpg'
+    id: 'prod-pickle-mango',
+    category: 'TRADITIONAL PICKLES',
+    title: 'Spicy Cut Mango Pickle',
+    badge: 'HOMEMADE',
+    volume: '400g',
+    size: '400g',
+    price: 189,
+    originalPrice: 229,
+    image: 'assets/pickle_jar.jpg'
   },
   {
-    id: 'prod-5l',
-    brand: 'MALAYALEES',
+    id: 'prod-oil-500ml',
+    category: 'COLD PRESSED OILS',
+    title: 'Pure Wood Pressed Coconut Oil',
+    badge: 'WOOD PRESSED',
+    volume: '500 ml',
+    size: '500 ml',
+    price: 195,
+    originalPrice: 220,
+    image: 'assets/oil_bottle.jpg'
+  },
+  {
+    id: 'prod-oil-5l',
+    category: 'COLD PRESSED OILS',
+    title: 'Heritage Master Can',
+    badge: 'BULK SAVER',
+    volume: '5 Litre',
     size: '5 Litre',
-    title: 'MALAYALEES',
-    price: 1750,
-    badge: 'Bulk Saver',
+    price: 1650,
+    originalPrice: 1850,
     image: 'assets/product.jpg'
   }
 ];
@@ -151,25 +141,44 @@ const contactForm = document.getElementById('contactForm');
 function renderProducts() {
   if (!productsGrid) return;
   productsGrid.innerHTML = PRODUCTS.map(p => `
-    <div class="product-card reveal-up">
-      <span class="product-badge">${p.badge}</span>
-      <div class="product-img-wrap">
-        <img src="${p.image}" alt="${p.brand} ${p.size}" class="product-img" loading="lazy" />
+    <div class="artisan-card reveal-up" data-id="${p.id}">
+      <div class="card-img-wrap">
+        <img src="${p.image}" alt="${p.title}" class="card-img" loading="lazy" />
+        <button class="card-heart-btn" onclick="toggleWishlist('${p.id}', this)" aria-label="Add to wishlist">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </button>
+        <span class="card-badge">${p.badge}</span>
       </div>
-      <div class="product-info">
-        <h3 class="product-title">${p.brand}</h3>
-        <div class="product-size">${p.size}</div>
-        <div class="product-footer">
-          <span class="product-price">₹${p.price}</span>
-          <button class="product-btn-add" onclick="addToCart('${p.id}')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-            Add to Cart
-          </button>
+      <div class="card-body">
+        <span class="card-category">${p.category}</span>
+        <h3 class="card-title">${p.title}</h3>
+        <div class="card-volume">${p.volume}</div>
+        <div class="card-price-row">
+          <span class="card-price">₹ ${p.price}</span>
+          ${p.originalPrice ? `<span class="card-original-price">₹ ${p.originalPrice}</span>` : ''}
         </div>
       </div>
+      <button class="card-add-btn" onclick="addToCart('${p.id}')">
+        <span>ADD TO CART</span>
+      </button>
     </div>
   `).join('');
 }
+
+window.toggleWishlist = function(productId, btn) {
+  btn.classList.toggle('active');
+  const icon = btn.querySelector('svg');
+  if (btn.classList.contains('active')) {
+    icon.setAttribute('fill', '#e53e3e');
+    icon.setAttribute('stroke', '#e53e3e');
+    showToast('Saved to your wishlist ❤️');
+  } else {
+    icon.setAttribute('fill', 'none');
+    icon.setAttribute('stroke', 'currentColor');
+  }
+};
 
 // --- INITIALIZE REVIEWS ---
 let currentReviewIndex = 0;
@@ -248,8 +257,8 @@ function updateCartUI() {
     <div class="cart-item">
       <img src="${item.image}" alt="${item.title}" class="cart-item-img" />
       <div class="cart-item-details">
-        <div class="cart-item-title">${item.title} (${item.size})</div>
-        <div class="cart-item-price">₹${item.price}</div>
+        <div class="cart-item-title">${item.title} (${item.volume || item.size})</div>
+        <div class="cart-item-price">₹ ${item.price}</div>
         <div class="cart-item-controls">
           <button class="qty-btn" onclick="updateQty('${item.id}', -1)">-</button>
           <span class="qty-val">${item.quantity}</span>
@@ -278,7 +287,7 @@ window.addToCart = function(productId) {
 
   saveCart();
   updateCartUI();
-  showToast(`Added ${product.brand || product.title} (${product.size}) to your cart`);
+  showToast(`Added ${product.title} (${product.volume || product.size}) to your cart`);
 };
 
 window.updateQty = function(productId, delta) {
@@ -342,8 +351,8 @@ function openCheckout() {
   if (checkoutItems) {
     checkoutItems.innerHTML = cart.map(item => `
       <div class="checkout-item-line">
-        <span>${item.brand || item.title || 'MALAYALEES'} (${item.size}) × ${item.quantity}</span>
-        <strong>₹${item.price * item.quantity}</strong>
+        <span>${item.title} (${item.volume || item.size}) × ${item.quantity}</span>
+        <strong>₹ ${item.price * item.quantity}</strong>
       </div>
     `).join('');
   }
@@ -395,31 +404,21 @@ if (successClose) {
   });
 }
 
-// --- HERO SLIDER AUTO-ROTATE ---
-let currentHeroSlide = 0;
-const heroSlides = document.querySelectorAll('.hero-slide');
-const heroDots = document.querySelectorAll('.hero-dot');
-
-function setHeroSlide(idx) {
-  if (!heroSlides.length) return;
-  heroSlides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === idx);
-  });
-  heroDots.forEach((dot, i) => {
-    dot.classList.toggle('active', i === idx);
-  });
-  currentHeroSlide = idx;
-}
-
-if (heroDots.length) {
-  heroDots.forEach((dot, i) => {
-    dot.addEventListener('click', () => setHeroSlide(i));
+// --- HERO PILL INDICATORS ---
+let activePillIndex = 0;
+const indicatorPills = document.querySelectorAll('.indicator-pill');
+if (indicatorPills.length) {
+  indicatorPills.forEach((pill, i) => {
+    pill.addEventListener('click', () => {
+      activePillIndex = i;
+      indicatorPills.forEach((p, idx) => p.classList.toggle('active', idx === i));
+    });
   });
 
   setInterval(() => {
-    const nextIdx = (currentHeroSlide + 1) % heroSlides.length;
-    setHeroSlide(nextIdx);
-  }, 6000);
+    activePillIndex = (activePillIndex + 1) % indicatorPills.length;
+    indicatorPills.forEach((p, idx) => p.classList.toggle('active', idx === activePillIndex));
+  }, 4500);
 }
 
 // --- NAVBAR SCROLL & HAMBURGER ---
