@@ -304,7 +304,8 @@ a {
   min-height: 520px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   background-color: #12100e;
 }
@@ -419,6 +420,15 @@ a {
   box-sizing: border-box;
 }
 
+.hero-content-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
 .hero-brand-eyebrow {
   font-size: 0.72rem;
   font-weight: 800;
@@ -442,13 +452,14 @@ a {
 
 .hero-title-brand {
   font-family: var(--font-sans);
-  font-size: clamp(3.2rem, 9.5vw, 5.6rem);
+  font-size: clamp(3.5rem, 10vw, 6.5rem);
   font-weight: 900;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.12em;
   line-height: 1;
   color: #ffffff;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+  text-transform: uppercase;
 }
 
 .hero-subtext {
