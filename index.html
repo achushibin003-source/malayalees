@@ -17,21 +17,36 @@
     <!-- TOP WHITE NAVIGATION BAR (Locked in Hero Section) -->
     <header class="top-white-bar" id="navbar">
       <nav class="top-nav-center">
+        <div class="top-nav-left"></div>
         <a href="#home" class="top-nav-brand">MALAYALEES</a>
-        <button class="top-nav-cart" id="cartBtn" aria-label="Shopping cart">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
-          </svg>
-          <span>Cart</span>
-          <span class="cart-count" id="cartCount">0</span>
-        </button>
+        <div class="top-nav-right">
+          <button class="top-nav-cart" id="cartBtn" aria-label="Shopping cart">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+            <span>Cart</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+        </div>
       </nav>
     </header>
 
-    <!-- Hero Media Background (Lifestyle Action Shot) -->
-    <div class="hero-media-wrap">
-      <img src="assets/hero_artisan.jpg" alt="Rich lifestyle action shot of fresh split coconuts and golden virgin coconut oil pouring into a glass bottle" class="hero-media-img" />
-      <div class="hero-media-overlay"></div>
+    <!-- Hero Carousel Background -->
+    <div class="hero-carousel-wrap" id="heroCarousel">
+      <div class="hero-carousel-track" id="heroCarouselTrack">
+        <div class="hero-carousel-slide active">
+          <img src="assets/hero_pickles.jpg" alt="Traditional Kerala style pickles — mango, lemon and fish pickles in clay and glass jars" class="hero-media-img" />
+          <div class="hero-media-overlay"></div>
+        </div>
+        <div class="hero-carousel-slide">
+          <img src="assets/hero_coconut_oil.jpg" alt="Cold pressed coconut oil being extracted using traditional wooden press in Kerala" class="hero-media-img" />
+          <div class="hero-media-overlay"></div>
+        </div>
+        <div class="hero-carousel-slide">
+          <img src="assets/hero_cooking.jpg" alt="Traditional Kerala cooking with coconut oil, tempering curry leaves and mustard seeds in iron kadai" class="hero-media-img" />
+          <div class="hero-media-overlay"></div>
+        </div>
+      </div>
     </div>
 
     <!-- Circular Translucent Badge Stamp (Top-Right) -->
@@ -49,17 +64,6 @@
       </div>
     </div>
 
-    <!-- Hero Content Overlay -->
-    <div class="hero-artisan-content hero-content-centered">
-      <h1 class="hero-bold-headline hero-title-brand">MALAYALEES</h1>
-
-      <!-- Slider Pill Indicators -->
-      <div class="hero-pill-indicators" aria-label="Slider indicators">
-        <span class="indicator-pill active"></span>
-        <span class="indicator-pill"></span>
-        <span class="indicator-pill"></span>
-      </div>
-    </div>
   </section>
 
   <!-- MARQUEE BAR -->

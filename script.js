@@ -10,7 +10,7 @@ const PRODUCTS = [
     id: 'prod-oil-200g',
     type: 'oil',
     category: '',
-    title: 'Malayalis Coconut Oil 200g',
+    title: 'Coconut Oil',
     badge: '',
     volume: '200g',
     size: '200g',
@@ -22,7 +22,7 @@ const PRODUCTS = [
     id: 'prod-oil-500g',
     type: 'oil',
     category: '',
-    title: 'Malayalis Coconut Oil 500g',
+    title: 'Coconut Oil',
     badge: '',
     volume: '500g',
     size: '500g',
@@ -34,7 +34,7 @@ const PRODUCTS = [
     id: 'prod-oil-1000g',
     type: 'oil',
     category: '',
-    title: 'Malayalis Coconut Oil 1000g',
+    title: 'Coconut Oil',
     badge: '',
     volume: '1000g',
     size: '1000g',
@@ -46,7 +46,7 @@ const PRODUCTS = [
     id: 'prod-oil-2000g',
     type: 'oil',
     category: '',
-    title: 'Malayalis Coconut Oil 2000g',
+    title: 'Coconut Oil',
     badge: '',
     volume: '2000g',
     size: '2000g',
@@ -58,7 +58,7 @@ const PRODUCTS = [
     id: 'prod-oil-5000g',
     type: 'oil',
     category: '',
-    title: 'Malayalis Coconut Oil 5000g',
+    title: 'Coconut Oil',
     badge: '',
     volume: '5000g',
     size: '5000g',
@@ -598,10 +598,52 @@ if (contactForm) {
   });
 }
 
+// --- HERO CAROUSEL AUTO-PLAY ---
+function initHeroCarousel() {
+  const slides = document.querySelectorAll('.hero-carousel-slide');
+  const pills = document.querySelectorAll('#heroPillIndicators .indicator-pill');
+  if (!slides.length) return;
+
+  let current = 0;
+  let autoTimer = null;
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    pills[current]?.classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    pills[current]?.classList.add('active');
+  }
+
+  function startAuto() {
+    autoTimer = setInterval(() => {
+      goTo(current + 1);
+    }, 4500);
+  }
+
+  function stopAuto() {
+    clearInterval(autoTimer);
+  }
+
+  // Manual navigation via pill indicators
+  pills.forEach((pill, i) => {
+    pill.addEventListener('click', () => {
+      stopAuto();
+      goTo(i);
+      startAuto();
+    });
+    pill.style.cursor = 'pointer';
+  });
+
+  startAuto();
+}
+
 // --- BOOTSTRAP ---
 document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
   renderReviews();
   updateCartUI();
   setupReveals();
+  initHeroCarousel();
 });
+
